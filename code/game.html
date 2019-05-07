@@ -30,6 +30,12 @@ var Paddle = function () {
         y: 200,
         speed: 5,
     }
+    o.moveLeft = function () {
+        paddle.x -= paddle.speed
+    }
+    o.moveRight = function () {
+        paddle.x += paddle.speed
+    }
     return o
 }
 
@@ -63,9 +69,9 @@ var __main = function () {
     setInterval(function(){
         // update x //
         if (leftDown) {
-            paddle.x -= paddle.speed
+            paddle.moveLeft()
         } else if(rightDown) {
-            paddle.x += paddle.speed
+            paddle.moveRight()
         }
         // clamp x
 
