@@ -11,7 +11,8 @@ var SceneEnd = function(game) {
     s.draw = function() {
         // draw labels
         game.context.fillStyle = "black"
-        game.context.fillText('按 R  重启游戏', 100, 290)
+        game.context.fillText('GAME OVER', 180, 150)
+        game.context.fillText('按 R  重启游戏', 180, 170)
     }
     s.update = function() {
 
