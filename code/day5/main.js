@@ -1,5 +1,6 @@
 var loadLevel = function (game,n) {
     var n = n - 1
+    
     var level = levels[n]
     var blocks = []
     for (let i = 0; i < level.length; i++) {
@@ -10,8 +11,7 @@ var loadLevel = function (game,n) {
     }
     return blocks
 }
-
-
+// 全局参数
 score = 0
 userLife = 3
 nowLevel = null || 1
