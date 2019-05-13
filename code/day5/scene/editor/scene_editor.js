@@ -47,7 +47,12 @@ var SceneEditor = function(game) {
 
     // mouse event
     // var enableDrag = false
-    var existedBlock = false
+    var existedBlock = function (block, x, y) {
+        if (block.hasPoint(x, y)) {
+            return true
+        }
+        return false
+    }
     game.canvas.addEventListener('mousedown', function(event) {
         // 40 19 向下取整
         // 0 0 是在00
@@ -60,21 +65,48 @@ var SceneEditor = function(game) {
         var y = event.offsetY
         var needx = (parseInt(x / 40) * 40)
         var needy = (parseInt(y / 19) * 19)
-        log(x, y, event)
-        log(needx, needy, event)
+        // log(x, y, event)
+        // log(needx, needy, event)
         var n = 1
         var p = [needx, needy, n]
         var block = Block(game, p)
-        if (existedBlock == false) {
+
+        if (editorBlocks.length == 0){
             editorBlocks.push(block)
-            if (1) {
-                editorBlocks.pop(block)
-                n++
-                p = [needx, needy, n]
-                block = Block(game, p)
-                editorBlocks.push(block)
+        }else {
+            for (let i = 0; i < editorBlocks.length; i++) {
+                log('editorBlocks.length', editorBlocks.length)
+                log("for")
+                if (editorBlocks[i].hasPoint(x, y)) {
+                        editorBlocks[i].lifes += 1
+                }else {
+                    editorBlocks.push(block)
+                }
             }
         }
+
+        // if (existedBlock(block, x, y)) {
+        //         editorBlocks.push(blockitem)
+        // }
+        // editorBlocks.push(block)
+        // var block = Block(game, p)
+        // 就是当此处没有的时候push
+        // 如何判断此处有没有呢？
+        // log(block)
+        // log("x", "y", x, y)
+        // log("o.x", "o.x+o.w","o.y","o.y+o.h", block.x, block.x+block.w, block.y, block.y+block.h)
+
+        // log(block.hasPoint(x, y))
+
+        // if (block.hasPoint(x, y)) {
+        //     n++
+        //     log('n',n)
+        //     p = [needx, needy, n]
+        //     block = Block(game, p)
+        //     editorBlocks.push(block)
+        // }else {
+        //     editorBlocks.push(block)
+        // }
 
 
 

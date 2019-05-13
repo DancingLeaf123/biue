@@ -63,7 +63,7 @@ var Scene = function(game) {
         }
         njdu = window.fps
 
-        log("nowLevel",nowLevel)
+        // log("nowLevel",nowLevel)
 
         ball.move()
         // 判断游戏结束
