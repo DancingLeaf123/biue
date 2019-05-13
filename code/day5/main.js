@@ -11,6 +11,7 @@ var loadLevel = function (game,n) {
     return blocks
 }
 
+
 score = 0
 userLife = 3
 nowLevel = null || 1
@@ -40,7 +41,12 @@ var enableDebugMode = function (game, enable) {
     document.querySelector('#id-input-speed').addEventListener('input', function(event) {
         var input = event.target
         // log(event, input.value)
-        window.fps = Number(input.value)
+        if (input.value <=30) {
+            window.fps = 30
+        }else {
+            window.fps = Number(input.value )
+        }
+        log(window.fps);
     })
 }
 

@@ -8,7 +8,7 @@ var Scene = function(game) {
 
     blocks = loadLevel(game, nowLevel)
     alives = blocks.length
-
+    nextctn = ""
     // log('blocks', blocks)
 
 
@@ -22,6 +22,8 @@ var Scene = function(game) {
     game.registerAction('f', function(){
         ball.fire()
     })
+
+
 
     s.draw = function() {
         // draw 背景
@@ -46,20 +48,21 @@ var Scene = function(game) {
                 }
             }
         }
-
-
         // draw labels
-
         game.context.fillStyle = "white"
+        game.context.fillText('难度1~100: ' + Number(window.fps), 5, 270)
         game.context.fillText('分数: ' + score, 5, 280)
         game.context.fillText('剩余生命: ' + userLife, 5, 290)
         game.context.fillText('level: ' + blocks.length, 180, 20)
+        game.context.fillText( nextctn, 180, 100)
 
     }
     s.update = function() {
         if (window.paused) {
             return
         }
+        njdu = window.fps
+
         log("nowLevel",nowLevel)
 
         ball.move()
@@ -96,9 +99,20 @@ var Scene = function(game) {
                     alives --
                     log('alives', alives)
                     if (alives == 0 && blocks.length<=2) {
-                        blocks = loadLevel(game, blocks.length + 1)
-                        alives = blocks.length
-                        nowLevel = blocks.length
+                        setTimeout(function () {
+                            window.paused = true
+                            nextctn = "按 N 进入 下一关, 按 P 继续游戏"
+                            window.addEventListener('keydown', function (event) {
+                                let k = event.code
+                                if (k == 'KeyN') {
+                                    nextctn = ""
+                                    blocks = loadLevel(game, blocks.length + 1)
+                                    alives = blocks.length
+                                    nowLevel = blocks.length
+                                    window.fps += 5
+                                }
+                            })
+                        },500)
                     }
                     if (alives == 0 && blocks.length >2) {
                         //跳转到you win 场景
