@@ -2,6 +2,7 @@ var Block = function(game, position) {
     // positon 是 [0, 0] 格式
     var p = position
     var img = game.imageByName('block')
+    var img2 = game.imageByName('block2')
     var o = {
         x: p[0],
         y: p[1],
@@ -9,6 +10,7 @@ var Block = function(game, position) {
         lifes: p[2] || 1,
     }
     o.image = img.image
+    o.image2 = img2.image
     o.w = img.w
     o.h = img.h
     o.kill = function() {

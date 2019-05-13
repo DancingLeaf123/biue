@@ -16,6 +16,10 @@ var GuaGame = function(fps, images, runCallback) {
     g.drawImage = function(guaImage) {
         g.context.drawImage(guaImage.image, guaImage.x, guaImage.y)
     }
+    g.drawtype2 = function(guaImage) {
+        g.context.drawImage(guaImage.image2, guaImage.x, guaImage.y)
+    }
+
     // events
     window.addEventListener('keydown', function(event){
         g.keydowns[event.key] = true

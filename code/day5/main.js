@@ -31,6 +31,7 @@ var enableDebugMode = function (game, enable) {
             //debug  载入关卡
             // log('k[5]',k[5])
             blocks = loadLevel(game, Number(k[5]))
+            nowLevel = blocks.length
             alives = blocks.length
             // log('blocks', blocks)
         }
@@ -47,7 +48,10 @@ var __main = function() {
     var images = {
         ball: 'img/ball.png',
         block: 'img/block.png',
+        block2: 'img/block2.png',
         paddle: 'img/paddle.png',
+        paddle2: 'img/paddle2.png',
+
     }
     var game = GuaGame(30, images, function(g){
         var s = SceneTitle(g)

@@ -28,13 +28,22 @@ var Scene = function(game) {
         game.context.fillStyle = "#554"
         game.context.fillRect(0, 0, 400, 300)
         // draw
-        game.drawImage(paddle)
+        if (nowLevel >= 2) {
+            game.drawtype2(paddle)
+        }else {
+            game.drawImage(paddle)
+        }
         game.drawImage(ball)
         // draw blocks
         for (let i = 0; i < blocks.length; i++) {
             var block = blocks[i]
             if (block.alive) {
-                game.drawImage(block)
+                if (block.lifes == 2) {
+                    game.drawtype2(block)
+                    continue
+                }
+                else{game.drawImage(block)
+                }
             }
         }
 
