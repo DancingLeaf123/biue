@@ -2,6 +2,7 @@ var Scene = function(game) {
     var s = {
         game: game,
     }
+    log(1111111111)
     // 初始化
     var paddle = Paddle(game)
     var ball = Ball(game)

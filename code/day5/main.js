@@ -1,6 +1,6 @@
 var loadLevel = function (game,n) {
     var n = n - 1
-    
+
     var level = levels[n]
     var blocks = []
     for (let i = 0; i < level.length; i++) {
@@ -24,6 +24,7 @@ var enableDebugMode = function (game, enable) {
     window.paused = false
     window.addEventListener('keydown', function (event) {
         let k = event.code
+        // log(event)
         // log(k)
         if (k == 'KeyP') {
             //debug  暂停
