@@ -2,7 +2,10 @@ var Scene = function(game) {
     var s = {
         game: game,
     }
-    log(1111111111)
+    window.fps = 30
+
+
+
     // 初始化
     var paddle = Paddle(game)
     var ball = Ball(game)
@@ -11,8 +14,6 @@ var Scene = function(game) {
     alives = blocks.length
     nextctn = ""
     // log('blocks', blocks)
-
-
 
     game.registerAction('a', function(){
         paddle.moveLeft()
@@ -146,7 +147,7 @@ var Scene = function(game) {
         var y = event.offsetY
         // log(x, y, 'move')
         if (enableDrag) {
-            log(x, y, 'drag')
+            // log(x, y, 'drag')
             ball.x = x
             ball.y = y
         }
@@ -154,7 +155,7 @@ var Scene = function(game) {
     game.canvas.addEventListener('mouseup', function(event) {
         var x = event.offsetX
         var y = event.offsetY
-        log(x, y, 'up')
+        // log(x, y, 'up')
         enableDrag = false
     })
 
