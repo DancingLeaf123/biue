@@ -4,9 +4,12 @@ var Scene = function(game) {
     }
     window.fps = 30
 
+    // var starsky = game.imageByName(starsky)
 
 
     // 初始化
+    var starsky = Starsky(game)
+
     var paddle = Paddle(game)
     var ball = Ball(game)
 
@@ -31,6 +34,7 @@ var Scene = function(game) {
         // draw 背景
         game.context.fillStyle = "#554"
         game.context.fillRect(0, 0, 400, 300)
+        game.drawImage(starsky)
         // draw
         if (nowLevel >= 2) {
             game.drawtype2(paddle)

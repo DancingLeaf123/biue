@@ -61,7 +61,7 @@ var __main = function() {
         block2: 'img/block2.png',
         paddle: 'img/paddle.png',
         paddle2: 'img/paddle2.png',
-
+        starsky: 'img/starsky.gif',
     }
     var game = GuaGame(30, images, function(g){
         var s = SceneTitle(g)

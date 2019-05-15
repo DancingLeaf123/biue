@@ -107,12 +107,11 @@ var SceneEditor = function(game) {
         var y = event.offsetY
         var needx = (parseInt(x / 40) * 40)
         var needy = (parseInt(y / 19) * 19)
-        // log(x, y, event)
-        // log(needx, needy, event)
+
         var n = 1
         var p = [needx, needy, n]
 
-        // log(event)
+
         if(button == 0){
             if (editorBlocks.length == 0){
                 // log("editorBlocks.length == 0")
@@ -121,15 +120,12 @@ var SceneEditor = function(game) {
             }else {
                 let haddosomething = false
                 for (var i = 0; i < editorBlocks.length; i++) {
-                    // log('haddosomething', haddosomething)
-                    // log('editorBlocks[i]', editorBlocks[i])
+
                     if (editorBlocks[i].hasPoint(x, y)) {
-                        // log('editorBlocks[i].hasPoint(x, y)',editorBlocks[i].hasPoint(x, y))
                         if (editorBlocks[i].lifes == 1) {
                             editorBlocks[i].lifes += 1
                         }
                         haddosomething = true
-                        // log('haddosomething', haddosomething)
                         break;
                     }
                     else if (editorBlocks[i].hasPoint(x, y) == false) {
@@ -148,48 +144,23 @@ var SceneEditor = function(game) {
         else if(button == 2){
             let haddosomething = false
             for (var i = 0; i < editorBlocks.length; i++) {
-                // log('haddosomething', haddosomething)
-                // log('editorBlocks[i]', editorBlocks[i])
                 if (editorBlocks[i].hasPoint(x, y)) {
-                    // log('editorBlocks[i].hasPoint(x, y)',editorBlocks[i].hasPoint(x, y))
                     if (editorBlocks[i].lifes == 2) {
                         editorBlocks[i].lifes -= 1
                     }else if (editorBlocks[i].lifes == 1) {
                         editorBlocks.splice(i,1)
                     }
                     haddosomething = true
-                    // log('haddosomething', haddosomething)
                     break;
                 }
                 else if (editorBlocks[i].hasPoint(x, y) == false) {
                     continue;
                 }
             }
-            // log(editorBlocks.length)
-            // if (haddosomething == false) {
-            //     let block = Block(game, p)
-            //     editorBlocks.push(block)
-            //     haddosomething = true
-            // }
         }
         save()
         // fetch()
     })
-    // game.canvas.addEventListener('mousemove', function(event) {
-    //     var x = event.offsetX
-    //     var y = event.offsetY
-    //     // log(x, y, 'move')
-    //     if (enableDrag) {
-    //         log(x, y, 'drag')
-    //         ball.x = x
-    //         ball.y = y
-    //     }
-    // })
-    // game.canvas.addEventListener('mouseup', function(event) {
-    //     var x = event.offsetX
-    //     var y = event.offsetY
-    //     log(x, y, 'up')
-    //     enableDrag = false
-    // })
+
     return s
 }
